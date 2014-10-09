@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+	<persistence-unit name="hslu_feukora_database" transaction-type="RESOURCE_LOCAL">
+
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+		<!-- Enables auto discovery of persistent classes, otherwise they must be listed using <class> -->
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+	
+	
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+		 		    <property name="javax.persistence.jdbc.url"	value="jdbc:sqlite:d://sample.db" />
+		 	
+			<property name="javax.persistence.jdbc.user" value="u_14fs_a2" />
+			<property name="javax.persistence.jdbc.password" value="vkDXcw" />
+			<property name="eclipselink.ddl-generation.output-mode"
+				value="database" />
+				
+			<!-- cache disablen mit eclipse-link property -->
+			<!-- <property name="eclipselink.cache.shared.default" value="false"/> -->
+			<shared-cache-mode>NONE</shared-cache-mode>
+			
+			<!-- 
+			<property name="eclipselink.logging.level" value="FINEST" />
+			<property name="eclipselink.logging.level.sql" value="FINE" />
+			<property name="eclipselink.logging.parameters" value="true" />
+			<property name="eclipselink.logging.logger" value="DefaultLogger"/>
+			-->
+
+			<!-- SQL-Statements nicht ausgeben -->
+			<property name="eclipselink.logging.level" value="off"/> 
+			<!--
+		    <property name="eclipselink.logging.level" value="FINE"/> 
+			-->
+			
+	<!--  Deaktiviert durch OF am 24.04 
+			<property name="eclipselink.ddl-generation" value="drop-and-create-tables" />  -->
+		
+		
+	 <!--  ACHTUNG!!!!!!  bei produktiven sollten wir evt. auf non schalten! -->
+		<property name="eclipselink.ddl-generation" value="create-or-extend-tables" />  
+
+
+		</properties>
+
+	</persistence-unit>
+</persistence>
